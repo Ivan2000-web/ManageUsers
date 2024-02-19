@@ -57,7 +57,7 @@ main .edit-icon:hover {
 	opacity: 0.5;
 }
 
-form input:not([type="checkbox"]), form textarea, form button {
+form input, form button {
 	width: 90%;
 	padding: 15px 5%;
 	font-family: "Montserrat", sans-serif;
@@ -65,13 +65,14 @@ form input:not([type="checkbox"]), form textarea, form button {
 	margin-bottom: 10px;
 	border: 0;
 	background: #222;
-	color: #fff;
+	color: #fff !important;
 	outline: none;
 	font-size: 15px;
 }
 
-form input[type="checkbox"] {
-	margin: 10px;
+form.add-edit-form input::placeholder{
+	color: #fff;
+	opacity: 0.5;
 }
 
 form button {
@@ -95,6 +96,7 @@ aside form button:hover {
 .user form button:hover {
 	transform: scale(1.01);
 }
+
 
 
 

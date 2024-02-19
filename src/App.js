@@ -1,30 +1,21 @@
-import React from 'react';
-import Header from './components/Header';
-import Users from './components/Users';
-import AddUser from './components/AddUser';
+import React from 'react'
+import Header from './components/Header'
+import Users from './components/Users'
+import AddUser from './components/AddUser'
+import axios from 'axios'
+
+const baseUrl = 'https://reqres.in/api/users?page=1'
 
 class App extends React.Component {
   constructor(props) {
     super(props)
+
+    axios.get(baseUrl).then(res => {
+      this.setState({users: res.data.data})
+    })
+
     this.state = { 
-      users: [
-    {
-     id: 1,
-     firstname: 'Bob',
-     lastname: "Smith",
-     bio: "I am very good guy1.",
-     age: 40,
-     isHappy: true
-    },
-    {
-     id: 2,
-     firstname: 'John',
-     lastname: "Doe",
-     bio: "I am very good guy2.",
-     age: 22,
-     isHappy: false
-    }
-  ]  
+      users: []  
  }
    //Говорим, что в методах addUser, deleteUser и editUser можно использовать состояния
    this.addUser = this.addUser.bind(this);
